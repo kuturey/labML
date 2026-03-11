@@ -45,6 +45,8 @@ plt.subplot(1, 2, 2)
 plt.hist(df['MedHouseVal'], bins=50, edgecolor='black')
 plt.title("Распределение целевой переменной")
 plt.tight_layout()
+
+plt.savefig('01_data_cleaning.png')  # Сохраняем первый график
 plt.show()
 
 # =====================================================
@@ -148,6 +150,7 @@ plt.subplot(2, 2, 4)
 sns.heatmap(df.corr(), annot=True, cmap='coolwarm', fmt='.2f', cbar=False)
 plt.title("Корреляционная матрица")
 
+plt.savefig('02_model_analysis.png')  # Сохраняем второй график
 plt.tight_layout()
 plt.show()
 
