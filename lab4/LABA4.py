@@ -36,19 +36,6 @@ IQR = Q3 - Q1
 df = df[(df['MedHouseVal'] >= Q1 - 1.5 * IQR) & (df['MedHouseVal'] <= Q3 + 1.5 * IQR)]
 print(f"После удаления выбросов: {df.shape}")
 
-# Визуализация удаления выбросов
-plt.figure(figsize=(12, 4))
-plt.subplot(1, 2, 1)
-plt.boxplot(df['MedHouseVal'])
-plt.title("После удаления выбросов")
-plt.subplot(1, 2, 2)
-plt.hist(df['MedHouseVal'], bins=50, edgecolor='black')
-plt.title("Распределение целевой переменной")
-plt.tight_layout()
-
-plt.savefig('01_data_cleaning.png')  # Сохраняем первый график
-plt.show()
-
 # =====================================================
 # 4) ПРЕОБРАЗОВАНИЕ ЦЕЛЕВОЙ ПЕРЕМЕННОЙ
 # =====================================================
@@ -150,7 +137,6 @@ plt.subplot(2, 2, 4)
 sns.heatmap(df.corr(), annot=True, cmap='coolwarm', fmt='.2f', cbar=False)
 plt.title("Корреляционная матрица")
 
-plt.savefig('02_model_analysis.png')  # Сохраняем второй график
 plt.tight_layout()
 plt.show()
 
