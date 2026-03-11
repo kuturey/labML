@@ -23,7 +23,8 @@
 ---
 
 ### 2. Анализ остатков (Residuals vs Predicted)
-<img width="1500" height="1000" alt="image" src="https://github.com/user-attachments/assets/6ca07a6e-4332-45f5-8df4-33dbd5783229" />
+<img width="648" height="457" alt="image" src="https://github.com/user-attachments/assets/90423644-e1ff-467c-844a-e145c96e27be" />
+
 
 
 **Что показывает**: Зависимость остатков (ошибок) от предсказанных значений.
@@ -101,5 +102,6 @@ MSE Loss = 0.05
 3. **Главный фактор** - доход населения (MedInc)
 4. **Квадратичные признаки** улучшили модель
 5. **Гетероскедастичности нет** - остатки гомоскедастичны
+
 
 
