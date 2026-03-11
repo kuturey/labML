@@ -6,7 +6,8 @@
 ## 📊 Анализ графиков
 
 ### 1. Процесс обучения
-<img width="1200" height="400" alt="image" src="https://github.com/user-attachments/assets/8607da76-1a4a-4ad9-8538-874e8fc43cab" />
+<img width="668" height="459" alt="image" src="https://github.com/user-attachments/assets/afa6159b-5fd1-4063-8fc2-b38c3182bf38" />
+
 
 
 **Что показывает**: График снижения ошибки (MSE Loss) в процессе обучения модели.
@@ -100,4 +101,5 @@ MSE Loss = 0.05
 3. **Главный фактор** - доход населения (MedInc)
 4. **Квадратичные признаки** улучшили модель
 5. **Гетероскедастичности нет** - остатки гомоскедастичны
+
 
