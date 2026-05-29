@@ -1,0 +1,139 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+
+\geometry{
+    left=25mm,
+    right=15mm,
+    top=20mm,
+    bottom=20mm
+}
+
+\begin{document}
+
+\begin{center}
+    \Large\textbf{Лабораторная работа 11}\\
+    \large\textbf{Прямое и обратное распространение}\\
+    \vspace{0.5cm}
+\end{center}
+
+\section*{Цель работы}
+
+Найти выражения для производных ошибки по входам $x_1$ и $x_2$ в простой нейронной сети, используя обратное распространение ошибки.
+
+\section*{Описание сети}
+
+Два скалярных входа:
+
+\[
+x_1, \quad x_2
+\]
+
+Каждый вход проходит через сигмоидную функцию:
+
+\[
+i_1 = \sigma(x_1),\qquad i_2 = \sigma(x_2)
+\]
+
+Сигмоидная функция:
+
+\[
+\sigma(x) = \frac{1}{1 + e^{-x}}
+\]
+
+Производная сигмоиды:
+
+\[
+\sigma'(x) = \sigma(x)(1 - \sigma(x))
+\]
+
+Затем выходы проходят через слои $min$ и $max$:
+
+\[
+o_{min} = \min(i_1, i_2),\qquad o_{max} = \max(i_1, i_2)
+\]
+
+Финальный слой суммирования:
+
+\[
+y = o_{min} + o_{max}
+\]
+
+Необходимо выразить:
+
+\[
+\frac{\partial E}{\partial x_1},\qquad \frac{\partial E}{\partial x_2}
+\]
+
+через ошибку, распространяемую обратно:
+
+\[
+\frac{\partial E}{\partial y}
+\]
+
+\section*{Упрощение выхода сети}
+
+Для любых двух чисел:
+
+\[
+\min(i_1, i_2) + \max(i_1, i_2) = i_1 + i_2
+\]
+
+Таким образом:
+
+\[
+y = i_1 + i_2 = \sigma(x_1) + \sigma(x_2)
+\]
+
+\section*{Производная по $x_1$}
+
+Используя правило цепочки:
+
+\[
+\frac{\partial E}{\partial x_1} = \frac{\partial E}{\partial y} \cdot \frac{\partial y}{\partial x_1}
+\]
+
+Так как $y = \sigma(x_1) + \sigma(x_2)$:
+
+\[
+\frac{\partial y}{\partial x_1} = \sigma'(x_1) = \sigma(x_1)(1 - \sigma(x_1))
+\]
+
+Следовательно:
+
+\[
+\boxed{\frac{\partial E}{\partial x_1} = \frac{\partial E}{\partial y} \cdot \sigma(x_1)(1 - \sigma(x_1))}
+\]
+
+\section*{Производная по $x_2$}
+
+Аналогично:
+
+\[
+\frac{\partial E}{\partial x_2} = \frac{\partial E}{\partial y} \cdot \frac{\partial y}{\partial x_2}
+\]
+
+\[
+\frac{\partial y}{\partial x_2} = \sigma'(x_2) = \sigma(x_2)(1 - \sigma(x_2))
+\]
+
+\[
+\boxed{\frac{\partial E}{\partial x_2} = \frac{\partial E}{\partial y} \cdot \sigma(x_2)(1 - \sigma(x_2))}
+\]
+
+\section*{Вывод}
+
+Обратное распространение через слои min/max упрощается, потому что:
+
+\[
+\min(i_1,i_2) + \max(i_1,i_2) = i_1 + i_2
+\]
+
+Таким образом, производные ошибки зависят только от производной сигмоиды.
+
+\end{document}
